@@ -1,0 +1,5 @@
+by using this ontology:
+<ontology>
+
+First generate the path and relations. Then generate a SPARQL query for instances including all of its subclasses: 
+<competency_question> 
