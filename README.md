@@ -33,7 +33,7 @@ The second limitation pertains to the size of the ontology. As of now, ChatGPT c
 
 
 
-## Authors and acknowledgment
+## Authors and Acknowledgment
 Special thanks go to Siemens AG and TU Wien for their collaboration and contributions.
 
 ## License
