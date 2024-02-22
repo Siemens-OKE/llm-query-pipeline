@@ -31,13 +31,13 @@ python main.py <your_folder_name>
 
 The second limitation pertains to the size of the ontology. As of now, ChatGPT can support a prompt size up to 8000 tokens.
 
-
-
 ## Authors and Acknowledgment
 Special thanks go to Siemens AG and TU Wien for their collaboration and contributions.
 
 ## License
-For open source projects, say how it is licensed.
+MIT License
+
+Copyright (c) 2024 Siemens-OKE
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
