@@ -1,5 +1,5 @@
 import pandas as pd
-import run_gpt4
+import utils.run_gpt4 as run_gpt4
 import argparse
 
 if __name__ == "__main__":
@@ -26,8 +26,8 @@ if __name__ == "__main__":
     template = f.read()
     f.close()
 
-    template = template.replace("<ontology>", ontology)
-    nlqs = df["Competency Question"]
+    template = template.replace("{SCHEMA}", ontology)
+    nlqs = df["NLQ"]
 
     queries = run_gpt4.run_nlqs(template, nlqs)
     df["llm_auto_generated_query"] = queries

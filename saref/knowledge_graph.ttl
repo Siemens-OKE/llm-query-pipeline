@@ -1,401 +1,420 @@
- 
-@prefix : <https://w3id.org/saref#> .  
-@prefix om: <http://www.wurvoc.org/vocabularies/om-1.8/> .  
-@prefix owl: <http://www.w3.org/2002/07/owl#> .  
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .  
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .  
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .  
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .  
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .  
-@prefix time: <http://www.w3.org/2006/time#> .  
-@prefix saref: <https://w3id.org/saref#> .  
-@prefix schema: <http://schema.org/> .  
-@prefix dcterms: <http://purl.org/dc/terms/> .  
-@base <http://www.w3.org/2002/07/owl#> .  
-  
-[ rdf:type owl:Ontology  
- ] .  
-  
-#################################################################  
-#    Annotation properties  
-#################################################################  
-  
-###  http://www.w3.org/2002/07/owl#maxCardinality  
-owl:maxCardinality rdf:type owl:AnnotationProperty .  
-  
-  
-###  http://www.w3.org/2002/07/owl#minQualifiedCardinality  
-owl:minQualifiedCardinality rdf:type owl:AnnotationProperty .  
-  
-  
-###  https://w3id.org/saref#Commodity  
-saref:Commodity rdf:type owl:AnnotationProperty .  
-  
-  
-###  https://w3id.org/saref#represents  
-saref:represents rdf:type owl:AnnotationProperty .  
-  
-  
-#################################################################  
-#    Object Properties  
-#################################################################  
-  
-###  https://w3id.org/saref#accomplishes  
-saref:accomplishes rdf:type owl:ObjectProperty ;  
-                   owl:inverseOf saref:isAccomplishedBy ;  
-                   rdfs:comment "A relationship between a certain entity (e.g., a device) and the task it accomplishes"^^xsd:string ;  
-                   rdfs:label "accomplishes"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#consistsOf  
-saref:consistsOf rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#controlsProperty  
-saref:controlsProperty rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#hasCommand  
-saref:hasCommand rdf:type owl:ObjectProperty ;  
-                 owl:inverseOf saref:isCommandOf ;  
-                 rdfs:comment "A relationship between an entity (such as a function) and a command"^^xsd:string ;  
-                 rdfs:label "has command"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#hasFunction  
-saref:hasFunction rdf:type owl:ObjectProperty ;  
-                  rdfs:comment "A relationship identifying the type of function of a device"^^xsd:string ;  
-                  rdfs:label "has function"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#hasProfile  
-saref:hasProfile rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#hasSensingRange  
-saref:hasSensingRange rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#hasSensorType  
-saref:hasSensorType rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#hasTypicalConsumption  
-saref:hasTypicalConsumption rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#isAccomplishedBy  
-saref:isAccomplishedBy rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#isCommandOf  
-saref:isCommandOf rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#isMeasuredIn  
-saref:isMeasuredIn rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#isUsedFor  
-saref:isUsedFor rdf:type owl:ObjectProperty ;  
-                rdfs:comment "A relationship specifying the purpose for which a device is used for (e.g., controlling a Commodity)"^^xsd:string ;  
-                rdfs:label "is used for"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#makesMeasurement  
-saref:makesMeasurement rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#measuresProperty  
-saref:measuresProperty rdf:type owl:ObjectProperty .  
-  
-  
-###  https://w3id.org/saref#offers  
-saref:offers rdf:type owl:ObjectProperty ;  
-             rdfs:comment "A relationship between a device and a service"^^xsd:string ;  
-             rdfs:label "offers"^^xsd:string .  
-  
-  
-#################################################################  
-#    Data properties  
-#################################################################  
-  
-###  https://w3id.org/saref#hasManufacturer  
-saref:hasManufacturer rdf:type owl:DatatypeProperty ;  
-                      rdfs:range xsd:string ;  
-                      rdfs:comment "A relationship identifying the manufacturer of an entity (e.g., device)"^^xsd:string ;  
-                      rdfs:label "has manufacturer"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#hasModel  
-saref:hasModel rdf:type owl:DatatypeProperty ;  
-               rdfs:range xsd:string ;  
-               rdfs:comment "A relationship identifying the model of an entity (e.g., device)"^^xsd:string ;  
-               rdfs:label "has model"^^xsd:string .  
-  
-  
-#################################################################  
-#    Classes  
-#################################################################  
-  
-###  http://org.semanticweb.owlapi/error#Error4  
-<http://org.semanticweb.owlapi/error#Error4> rdf:type owl:Class .  
-  
-  
-###  http://org.semanticweb.owlapi/error#Error5  
-<http://org.semanticweb.owlapi/error#Error5> rdf:type owl:Class .  
-  
-  
-###  http://org.semanticweb.owlapi/error#Error6  
-<http://org.semanticweb.owlapi/error#Error6> rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Command  
-saref:Command rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Commodity  
-saref:Commodity rdf:type owl:Class ;  
-                rdfs:subClassOf [ rdf:type owl:Restriction ;  
-                                  owl:onProperty saref:isMeasuredIn ;  
-                                  owl:allValuesFrom saref:UnitOfMeasure  
-                                ] .  
-  
-  
-###  https://w3id.org/saref#Device  
-saref:Device rdf:type owl:Class ;  
-             rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error6> ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:consistsOf ;  
-                               owl:allValuesFrom saref:Device  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:controlsProperty ;  
-                               owl:allValuesFrom saref:Property  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:hasProfile ;  
-                               owl:allValuesFrom saref:Profile  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:hasState ;  
-                               owl:allValuesFrom saref:State  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:hasTypicalConsumption ;  
-                               owl:allValuesFrom [ rdf:type owl:Class ;  
-                                                   owl:unionOf ( saref:Energy  
-                                                                 saref:Power  
-                                                               )  
-                                                 ]  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:isUsedFor ;  
-                               owl:allValuesFrom saref:Commodity  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:makesMeasurement ;  
-                               owl:allValuesFrom saref:Measurement  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:measuresProperty ;  
-                               owl:allValuesFrom saref:Property  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:offers ;  
-                               owl:allValuesFrom saref:Service  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:accomplishes ;  
-                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;  
-                               owl:onClass saref:Task  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:hasFunction ;  
-                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;  
-                               owl:onClass saref:Function  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:hasManufacturer ;  
-                               owl:maxCardinality "1"^^xsd:nonNegativeInteger  
-                             ] ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:hasModel ;  
-                               owl:maxCardinality "1"^^xsd:nonNegativeInteger  
-                             ] ;  
-             rdfs:comment "A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended."^^xsd:string ;  
-             rdfs:label "Device"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#Electricity  
-saref:Electricity rdf:type owl:Class ;  
-                  rdfs:subClassOf saref:Commodity ;  
-                  rdfs:comment "A type of commodity"^^xsd:string ;  
-                  rdfs:label "Electricity"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#Energy  
-saref:Energy rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Function  
-saref:Function rdf:type owl:Class ;  
-               rdfs:subClassOf [ rdf:type owl:Restriction ;  
-                                 owl:onProperty saref:hasCommand ;  
-                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;  
-                                 owl:onClass saref:Command  
-                               ] ;  
-               rdfs:comment "The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. "^^xsd:string ;  
-               rdfs:label "Function"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#FunctionRelated  
-saref:FunctionRelated rdf:type owl:Class ;  
-                      rdfs:subClassOf saref:Device ;  
-                      rdfs:comment "A category that considers devices, sensors and their specification in terms of functions, states and services"^^xsd:string ;  
-                      rdfs:label "Function related"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#GetSensingDataCommand  
-saref:GetSensingDataCommand rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Measurement  
-saref:Measurement rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Power  
-saref:Power rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Profile  
-saref:Profile rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Property  
-saref:Property rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#SensingFunction  
-saref:SensingFunction rdf:type owl:Class ;  
-                      rdfs:subClassOf saref:Function ,  
-                                      [ rdf:type owl:Restriction ;  
-                                        owl:onProperty saref:hasSensingRange ;  
-                                        owl:someValuesFrom saref:Measurement  
-                                      ] ,  
-                                      [ rdf:type owl:Restriction ;  
-                                        owl:onProperty saref:hasCommand ;  
-                                        owl:allValuesFrom saref:GetSensingDataCommand  
-                                      ] ,  
-                                      [ rdf:type owl:Restriction ;  
-                                        owl:onProperty saref:hasSensorType ;  
-                                        owl:allValuesFrom saref:Property  
-                                      ] ;  
-                      rdfs:comment "A function that allows to transmit data from sensors, such as measurement values (e.g., temperature) or sensing data (e.g., occupancy)"^^xsd:string ;  
-                      rdfs:label "Sensing function"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#Sensor  
-saref:Sensor rdf:type owl:Class ;  
-             rdfs:subClassOf saref:FunctionRelated ,  
-                             [ rdf:type owl:Restriction ;  
-                               owl:onProperty saref:hasFunction ;  
-                               owl:someValuesFrom saref:SensingFunction  
-                             ] ;  
-             rdfs:comment "A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. Further, a device of category saref:Sensor that performs a saref:SensingFunction."^^xsd:string ;  
-             rdfs:label "Sensor"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#Service  
-saref:Service rdf:type owl:Class ;  
-              rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error4> ,  
-                              <http://org.semanticweb.owlapi/error#Error5> ;  
-              rdfs:comment "A service is a representation of a function to a network that makes the function discoverable, registerable, remotely controllable by other devices in the network. A service can represent one or more functions. A Service is offered by a device that wants (a certain set of) its function(s) to be discoverable, registerable, remotely controllable by other devices in the network. A Service must specify the device that is offering the service and the function(s) to be represented."^^xsd:string ;  
-              rdfs:label "Service"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#StartCommand  
-saref:StartCommand rdf:type owl:Class ;  
-                   rdfs:subClassOf saref:Command ,  
-                                   [ rdf:type owl:Restriction ;  
-                                     owl:onProperty saref:actsUpon ;  
-                                     owl:allValuesFrom saref:StartStopState  
-                                   ] ;  
-                   rdfs:comment "A type of command"^^xsd:string ;  
-                   rdfs:label "Start command"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#StartState  
-saref:StartState rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#StartStopState  
-saref:StartStopState rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#State  
-saref:State rdf:type owl:Class .  
-  
-  
-###  https://w3id.org/saref#Task  
-saref:Task rdf:type owl:Class ;  
-           rdfs:subClassOf [ rdf:type owl:Restriction ;  
-                             owl:onProperty saref:isAccomplishedBy ;  
-                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;  
-                             owl:onClass saref:Device  
-                           ] ;  
-           rdfs:comment "The goal for which a device is designed (from a user perspective). For example, a washing machine is designed for the task of washing. We propose here a list of tasks that are relevant for the purpose of SAREF, but this list can be extended."^^xsd:string ;  
-           rdfs:label "Task"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#Temperature  
-saref:Temperature rdf:type owl:Class ;  
-                  rdfs:subClassOf saref:Property ;  
-                  rdfs:comment "A saref:Property related to some measurements that are characterized by a certain value that is measured in a temperature unit (degree_Celsius, degree_Fahrenheit, or degree_kelvin)"^^xsd:string ;  
-                  rdfs:label "Temperature"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#TemperatureSensor  
-saref:TemperatureSensor rdf:type owl:Class ;  
-                        rdfs:subClassOf saref:Sensor ,  
-                                        [ rdf:type owl:Restriction ;  
-                                          owl:onProperty saref:consistsOf ;  
-                                          owl:someValuesFrom saref:Sensor  
-                                        ] ,  
-                                        [ rdf:type owl:Restriction ;  
-                                          owl:onProperty saref:hasFunction ;  
-                                          owl:someValuesFrom saref:SensingFunction  
-                                        ] ,  
-                                        [ rdf:type owl:Restriction ;  
-                                          owl:onProperty saref:measuresProperty ;  
-                                          owl:someValuesFrom saref:Temperature  
-                                        ] ,  
-                                        [ rdf:type owl:Restriction ;  
-                                          owl:onProperty saref:accomplishes ;  
-                                          owl:hasValue saref:Comfort  
-                                        ] ;  
-                        rdfs:comment "A device that consists of a sensor, has category saref:Sensor, performs the saref:SensingFunction and is used for the purpose of sensing a property of type saref:Temperature"^^xsd:string ;  
-                        rdfs:label "Temperature sensor"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#TemperatureUnit  
-saref:TemperatureUnit rdf:type owl:Class ;  
-                      rdfs:subClassOf saref:UnitOfMeasure ;  
-                      rdfs:comment "The unit of measure for temperature"^^xsd:string ;  
-                      rdfs:label "Temperature unit"^^xsd:string .  
-  
-  
-###  https://w3id.org/saref#UnitOfMeasure  
-saref:UnitOfMeasure rdf:type owl:Class .  
-  
-  
-#################################################################  
-#    Annotations  
-#################################################################  
-  
-saref:Commodity rdfs:comment "A marketable item for which there is demand, but which is supplied without qualitative differentiation across a market. SAREF refers to energy commodities such as electricity, gas, coal and oil. "^^xsd:string ;  
-                 rdfs:label "Commodity"^^xsd:string .  
-  
-  
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi  
-  
+@prefix : <https://w3id.org/saref#> .
+@prefix om: <http://www.wurvoc.org/vocabularies/om-1.8/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/saref#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#maxCardinality
+owl:maxCardinality rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#minQualifiedCardinality
+owl:minQualifiedCardinality rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/saref#Commodity
+saref:Commodity rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/saref#represents
+saref:represents rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/saref#accomplishes
+saref:accomplishes rdf:type owl:ObjectProperty ;
+                   owl:inverseOf saref:isAccomplishedBy ;
+                   rdfs:comment "A relationship between a certain entity (e.g., a device) and the task it accomplishes" ;
+                   rdfs:label "accomplishes" .
+
+
+###  https://w3id.org/saref#actsUpon
+saref:actsUpon rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#consistsOf
+saref:consistsOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#controlsProperty
+saref:controlsProperty rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#hasCommand
+saref:hasCommand rdf:type owl:ObjectProperty ;
+                 owl:inverseOf saref:isCommandOf ;
+                 rdfs:comment "A relationship between an entity (such as a function) and a command" ;
+                 rdfs:label "has command" .
+
+
+###  https://w3id.org/saref#hasFunction
+saref:hasFunction rdf:type owl:ObjectProperty ;
+                  rdfs:comment "A relationship identifying the type of function of a device" ;
+                  rdfs:label "has function" .
+
+
+###  https://w3id.org/saref#hasProfile
+saref:hasProfile rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#hasSensingRange
+saref:hasSensingRange rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#hasSensorType
+saref:hasSensorType rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#hasState
+saref:hasState rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#hasTypicalConsumption
+saref:hasTypicalConsumption rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#isAccomplishedBy
+saref:isAccomplishedBy rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#isCommandOf
+saref:isCommandOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#isMeasuredIn
+saref:isMeasuredIn rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#isUsedFor
+saref:isUsedFor rdf:type owl:ObjectProperty ;
+                rdfs:comment "A relationship specifying the purpose for which a device is used for (e.g., controlling a Commodity)" ;
+                rdfs:label "is used for" .
+
+
+###  https://w3id.org/saref#makesMeasurement
+saref:makesMeasurement rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#measuresProperty
+saref:measuresProperty rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/saref#offers
+saref:offers rdf:type owl:ObjectProperty ;
+             rdfs:comment "A relationship between a device and a service" ;
+             rdfs:label "offers" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/saref#hasManufacturer
+saref:hasManufacturer rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "A relationship identifying the manufacturer of an entity (e.g., device)" ;
+                      rdfs:label "has manufacturer" .
+
+
+###  https://w3id.org/saref#hasModel
+saref:hasModel rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:string ;
+               rdfs:comment "A relationship identifying the model of an entity (e.g., device)" ;
+               rdfs:label "has model" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://org.semanticweb.owlapi/error#Error4
+<http://org.semanticweb.owlapi/error#Error4> rdf:type owl:Class .
+
+
+###  http://org.semanticweb.owlapi/error#Error5
+<http://org.semanticweb.owlapi/error#Error5> rdf:type owl:Class .
+
+
+###  http://org.semanticweb.owlapi/error#Error6
+<http://org.semanticweb.owlapi/error#Error6> rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Command
+saref:Command rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Commodity
+saref:Commodity rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty saref:isMeasuredIn ;
+                                  owl:allValuesFrom saref:UnitOfMeasure
+                                ] .
+
+
+###  https://w3id.org/saref#Device
+saref:Device rdf:type owl:Class ;
+             rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error6> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:consistsOf ;
+                               owl:allValuesFrom saref:Device
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:controlsProperty ;
+                               owl:allValuesFrom saref:Property
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasProfile ;
+                               owl:allValuesFrom saref:Profile
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasState ;
+                               owl:allValuesFrom saref:State
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasTypicalConsumption ;
+                               owl:allValuesFrom [ rdf:type owl:Class ;
+                                                   owl:unionOf ( saref:Energy
+                                                                 saref:Power
+                                                               )
+                                                 ]
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:isUsedFor ;
+                               owl:allValuesFrom saref:Commodity
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:makesMeasurement ;
+                               owl:allValuesFrom saref:Measurement
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:measuresProperty ;
+                               owl:allValuesFrom saref:Property
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:offers ;
+                               owl:allValuesFrom saref:Service
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:accomplishes ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass saref:Task
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasFunction ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass saref:Function
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasManufacturer ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasModel ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ;
+             rdfs:comment "A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended." ;
+             rdfs:label "Device" .
+
+
+###  https://w3id.org/saref#Electricity
+saref:Electricity rdf:type owl:Class ;
+                  rdfs:subClassOf saref:Commodity ;
+                  rdfs:comment "A type of commodity" ;
+                  rdfs:label "Electricity" .
+
+
+###  https://w3id.org/saref#Energy
+saref:Energy rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Function
+saref:Function rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty saref:hasCommand ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass saref:Command
+                               ] ;
+               rdfs:comment "The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. " ;
+               rdfs:label "Function" .
+
+
+###  https://w3id.org/saref#FunctionRelated
+saref:FunctionRelated rdf:type owl:Class ;
+                      rdfs:subClassOf saref:Device ;
+                      rdfs:comment "A category that considers devices, sensors and their specification in terms of functions, states and services" ;
+                      rdfs:label "Function related" .
+
+
+###  https://w3id.org/saref#GetSensingDataCommand
+saref:GetSensingDataCommand rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Measurement
+saref:Measurement rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Power
+saref:Power rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Profile
+saref:Profile rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Property
+saref:Property rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#SensingFunction
+saref:SensingFunction rdf:type owl:Class ;
+                      rdfs:subClassOf saref:Function ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty saref:hasSensingRange ;
+                                        owl:someValuesFrom saref:Measurement
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty saref:hasCommand ;
+                                        owl:allValuesFrom saref:GetSensingDataCommand
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty saref:hasSensorType ;
+                                        owl:allValuesFrom saref:Property
+                                      ] ;
+                      rdfs:comment "A function that allows to transmit data from sensors, such as measurement values (e.g., temperature) or sensing data (e.g., occupancy)" ;
+                      rdfs:label "Sensing function" .
+
+
+###  https://w3id.org/saref#Sensor
+saref:Sensor rdf:type owl:Class ;
+             rdfs:subClassOf saref:FunctionRelated ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasFunction ;
+                               owl:someValuesFrom saref:SensingFunction
+                             ] ;
+             rdfs:comment "A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. Further, a device of category saref:Sensor that performs a saref:SensingFunction." ;
+             rdfs:label "Sensor" .
+
+
+###  https://w3id.org/saref#Service
+saref:Service rdf:type owl:Class ;
+              rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error4> ,
+                              <http://org.semanticweb.owlapi/error#Error5> ;
+              rdfs:comment "A service is a representation of a function to a network that makes the function discoverable, registerable, remotely controllable by other devices in the network. A service can represent one or more functions. A Service is offered by a device that wants (a certain set of) its function(s) to be discoverable, registerable, remotely controllable by other devices in the network. A Service must specify the device that is offering the service and the function(s) to be represented." ;
+              rdfs:label "Service" .
+
+
+###  https://w3id.org/saref#StartCommand
+saref:StartCommand rdf:type owl:Class ;
+                   rdfs:subClassOf saref:Command ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty saref:actsUpon ;
+                                     owl:allValuesFrom saref:StartStopState
+                                   ] ;
+                   rdfs:comment "A type of command" ;
+                   rdfs:label "Start command" .
+
+
+###  https://w3id.org/saref#StartState
+saref:StartState rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#StartStopState
+saref:StartStopState rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#State
+saref:State rdf:type owl:Class .
+
+
+###  https://w3id.org/saref#Task
+saref:Task rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty saref:isAccomplishedBy ;
+                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass saref:Device
+                           ] ;
+           rdfs:comment "The goal for which a device is designed (from a user perspective). For example, a washing machine is designed for the task of washing. We propose here a list of tasks that are relevant for the purpose of SAREF, but this list can be extended." ;
+           rdfs:label "Task" .
+
+
+###  https://w3id.org/saref#Temperature
+saref:Temperature rdf:type owl:Class ;
+                  rdfs:subClassOf saref:Property ;
+                  rdfs:comment "A saref:Property related to some measurements that are characterized by a certain value that is measured in a temperature unit (degree_Celsius, degree_Fahrenheit, or degree_kelvin)" ;
+                  rdfs:label "Temperature" .
+
+
+###  https://w3id.org/saref#TemperatureSensor
+saref:TemperatureSensor rdf:type owl:Class ;
+                        rdfs:subClassOf saref:Sensor ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty saref:consistsOf ;
+                                          owl:someValuesFrom saref:Sensor
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty saref:hasFunction ;
+                                          owl:someValuesFrom saref:SensingFunction
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty saref:measuresProperty ;
+                                          owl:someValuesFrom saref:Temperature
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty saref:accomplishes ;
+                                          owl:hasValue saref:Comfort
+                                        ] ;
+                        rdfs:comment "A device that consists of a sensor, has category saref:Sensor, performs the saref:SensingFunction and is used for the purpose of sensing a property of type saref:Temperature" ;
+                        rdfs:label "Temperature sensor" .
+
+
+###  https://w3id.org/saref#TemperatureUnit
+saref:TemperatureUnit rdf:type owl:Class ;
+                      rdfs:subClassOf saref:UnitOfMeasure ;
+                      rdfs:comment "The unit of measure for temperature" ;
+                      rdfs:label "Temperature unit" .
+
+
+###  https://w3id.org/saref#UnitOfMeasure
+saref:UnitOfMeasure rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#TempSensInst
+<http://www.co-ode.org/ontologies/ont.owl#TempSensInst> rdf:type owl:NamedIndividual ,
+                                                                 saref:TemperatureSensor .
+
+
+###  https://w3id.org/saref#Comfort
+saref:Comfort rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+saref:Commodity rdfs:comment "A marketable item for which there is demand, but which is supplied without qualitative differentiation across a market. SAREF refers to energy commodities such as electricity, gas, coal and oil. " ;
+                rdfs:label "Commodity" .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

@@ -1,6 +1,10 @@
 by using this ontology: 
-<ontology>
+{SCHEMA}
 
-first generate the path and relations. then generate "SPARQL query" with all needed prefixes including xsd, using those path and relations to validate following sentence, in the context of following sentences,  by using "ASK" keyword of SPARQL with only sufficient properties:
+first generate the path and relations. 
+then generate "SPARQL query" with all needed prefixes including xsd, 
+using those path and relations to validate following sentence,
+in the context of following sentences,  
+by using "ASK" keyword of SPARQL with only sufficient properties:
 
-<competency_question>
+{NLQ}
